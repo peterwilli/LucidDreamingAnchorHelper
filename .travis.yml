@@ -24,6 +24,8 @@ deploy:
   provider: releases
   api_key:
     secure: p2ujMU6bFMpO1uFqosJsVD3ffXBrkYVRoVadgjBOw57pjd57Iec74Q6BAe3ZFPjWzP20Cs7VDhPo1oTrxV9fd5p4EePr+047sV+DPRxzXaH+N8l+c7V0Qq/p5nDAgyV7MT1bmaGZM9AGBgv7FfE9dRMqCa2gAb2FtSQt9J+arCBNDpM9Ry2/QbtLqOkjk5bRaKfKXlNx6aDMa89nfgsXVCr7iByujXXbOEojyLx5eOHU4RGbaxMC81PXXiwYWZaaE2JJF03uaPu42wFT83YzLU3n5/SoQcu8i+m7A8iVtEGxYUaoyZMUtrF/70Aqsy2zV+zCOAgpv27tCu3xI4W4b/YFk5tQrs9QCA8goUFdS3Q6mFDuhWQdSq78+ZpO+kH0prkfqdj3WdeohEI9mkywEasxkPorfGAb2pVp11gu6uN3r5TxiIcRfeMGARjTqT1HqDzQeS1+j7/BKFQn37uVdvVDQKne4BDcer17Z9iIBb5qcVIgzIlIwbXdINy1mZojcIPpYa996IQO35JdBequ51UwQUnWVT5wr/1fls2jNCjFpbSsdU0p82UsIZK6oBciKLsg2Vt3HR1SQ3AXoISbfw12liFyVVXcKXl+hCewP/fgohJSyCN3nGK7vEslDzMYAugCK/ToQ0qMfTzo2B31P/1cEqpYfKbLzuv/kUrfaZw=
-  file: Lucid_Dream_Anchor_Helper-x86_64.AppImage
+  file:
+    - Lucid_Dream_Anchor_Helper-x86_64.AppImage
+    - release/LDAnchorHelper.exe
   on:
     repo: peterwilli/LucidDreamingAnchorHelper

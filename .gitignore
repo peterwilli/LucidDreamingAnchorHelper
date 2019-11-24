@@ -4,6 +4,7 @@
 LDAnchorHelperApp/
 LDAnchorHelper
 
+ldanchorhelper_plugin_import.cpp
 !core/
 *.*#
 *.a
