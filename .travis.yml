@@ -1,0 +1,22 @@
+dist: bionic
+
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install qt5-default qttools5-dev-tools
+
+script:
+  - echo "Making Linux Version!"
+  - qmake LDAnchorHelper.pro
+  - make
+
+  - echo "Packing to AppImage"
+  - ./linuxdeploy-x86_64.AppImage -e LDAnchorHelper -d 'LDAnchorHelper.desktop' -i 'icon.png' --appdir LDAnchorHelperApp --plugin qt --output appimage
+
+  - echo "Making the Windows version"
+  - git clone https://github.com/mxe/mxe.git
+  - cd mxe && make qt5
+  - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
+  - cd ..
+  - make clean
+  - rm Makefile
+  - i686-w64-mingw32.static-qmake-qt5

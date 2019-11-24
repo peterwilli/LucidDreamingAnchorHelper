@@ -1,6 +1,9 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
 
+LDAnchorHelperApp/
+LDAnchorHelper
+
 !core/
 *.*#
 *.a
@@ -32,6 +35,7 @@
 Makefile*
 Thumbs.db
 core
+moc_*.h
 moc_*.cpp
 qrc_*.cpp
 tags
