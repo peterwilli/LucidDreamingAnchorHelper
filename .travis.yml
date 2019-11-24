@@ -1,22 +1,29 @@
 dist: bionic
-
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install qt5-default qttools5-dev-tools
-
+- sudo apt-get update -qq
+- sudo apt-get install qt5-default qttools5-dev-tools
+- sudo apt-get install -y autoconf automake autopoint bash bison bzip2 flex g++ g++-multilib gettext git gperf intltool libc6-dev-i386 libgdk-pixbuf2.0-dev libltdl-dev libssl-dev libtool-bin libxml-parser-perl lzip make openssl p7zip-full patch perl pkg-config python ruby sed unzip wget xz-utils
 script:
-  - echo "Making Linux Version!"
-  - qmake LDAnchorHelper.pro
-  - make
-
-  - echo "Packing to AppImage"
-  - ./linuxdeploy-x86_64.AppImage -e LDAnchorHelper -d 'LDAnchorHelper.desktop' -i 'icon.png' --appdir LDAnchorHelperApp --plugin qt --output appimage
-
-  - echo "Making the Windows version"
-  - git clone https://github.com/mxe/mxe.git
-  - cd mxe && make qt5
-  - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
-  - cd ..
-  - make clean
-  - rm Makefile
-  - i686-w64-mingw32.static-qmake-qt5
+- echo "Making Linux Version!"
+- mv .git .git.bak
+- qmake LDAnchorHelper.pro
+- make
+- echo "Packing to AppImage"
+- "./linuxdeploy-x86_64.AppImage -e LDAnchorHelper -d 'LDAnchorHelper.desktop' -i
+  'icon.png' --appdir LDAnchorHelperApp --plugin qt --output appimage"
+- echo "Making the Windows version"
+- git clone https://github.com/mxe/mxe.git
+- cd mxe && make qt5
+- export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
+- cd ..
+- make clean
+- rm Makefile
+- i686-w64-mingw32.static-qmake-qt5
+- make
+deploy:
+  provider: releases
+  api_key:
+    secure: p2ujMU6bFMpO1uFqosJsVD3ffXBrkYVRoVadgjBOw57pjd57Iec74Q6BAe3ZFPjWzP20Cs7VDhPo1oTrxV9fd5p4EePr+047sV+DPRxzXaH+N8l+c7V0Qq/p5nDAgyV7MT1bmaGZM9AGBgv7FfE9dRMqCa2gAb2FtSQt9J+arCBNDpM9Ry2/QbtLqOkjk5bRaKfKXlNx6aDMa89nfgsXVCr7iByujXXbOEojyLx5eOHU4RGbaxMC81PXXiwYWZaaE2JJF03uaPu42wFT83YzLU3n5/SoQcu8i+m7A8iVtEGxYUaoyZMUtrF/70Aqsy2zV+zCOAgpv27tCu3xI4W4b/YFk5tQrs9QCA8goUFdS3Q6mFDuhWQdSq78+ZpO+kH0prkfqdj3WdeohEI9mkywEasxkPorfGAb2pVp11gu6uN3r5TxiIcRfeMGARjTqT1HqDzQeS1+j7/BKFQn37uVdvVDQKne4BDcer17Z9iIBb5qcVIgzIlIwbXdINy1mZojcIPpYa996IQO35JdBequ51UwQUnWVT5wr/1fls2jNCjFpbSsdU0p82UsIZK6oBciKLsg2Vt3HR1SQ3AXoISbfw12liFyVVXcKXl+hCewP/fgohJSyCN3nGK7vEslDzMYAugCK/ToQ0qMfTzo2B31P/1cEqpYfKbLzuv/kUrfaZw=
+  file: Lucid_Dream_Anchor_Helper-x86_64.AppImage
+  on:
+    repo: peterwilli/LucidDreamingAnchorHelper
