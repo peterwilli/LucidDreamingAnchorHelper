@@ -31,3 +31,4 @@ deploy:
     - release/LDAnchorHelper.exe
   on:
     repo: peterwilli/LucidDreamingAnchorHelper
+    tags: true

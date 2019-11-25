@@ -47,7 +47,7 @@
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;A random image from your images folder will appear randomly somewhere in your screen for a minute (unless you move your cursor over it, then it will disappear). &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;You can tune how often you want images to appear.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;A random image from your images folder will appear randomly somewhere in your screen for a minute (unless you click on it, then it will disappear). &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;You can tune how often you want images to appear.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
