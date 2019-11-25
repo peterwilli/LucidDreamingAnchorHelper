@@ -19,6 +19,7 @@ script:
 - ls mxe/usr/bin
 - echo "$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH" 
 - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
+- ls $TRAVIS_BUILD_DIR/mxe/usr/bin
 - make clean
 - rm Makefile
 - i686-w64-mingw32.static-qmake-qt5
