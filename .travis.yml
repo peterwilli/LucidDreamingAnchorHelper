@@ -12,7 +12,7 @@ script:
 - "./linuxdeploy-x86_64.AppImage -e LDAnchorHelper -d 'LDAnchorHelper.desktop' -i
   'icon.png' --appdir LDAnchorHelperApp --plugin qt --output appimage"
 - echo "Making the Windows version"
-- mkdir -p /mnt/data
+- sudo mkdir -p /mnt/data && sudo chmod 777 -R /mnt/data
 - cd /mnt/data
 - wget https://github.com/peterwilli/LucidDreamingAnchorHelper/releases/download/mxe_prebuilt/mxe.7z
 - 7z x mxe.7z
