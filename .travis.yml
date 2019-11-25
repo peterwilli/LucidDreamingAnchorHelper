@@ -14,6 +14,8 @@ script:
 - echo "Making the Windows version"
 - wget https://github.com/peterwilli/LucidDreamingAnchorHelper/releases/download/mxe_prebuilt/mxe.7z
 - 7z x mxe.7z
+- ls .
+- ls mxe
 - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
 - make clean
 - rm Makefile
