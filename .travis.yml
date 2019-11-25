@@ -14,16 +14,13 @@ script:
 - echo "Making the Windows version"
 - wget https://github.com/peterwilli/LucidDreamingAnchorHelper/releases/download/mxe_prebuilt/mxe.7z
 - 7z x mxe.7z
-- ls .
-- ls mxe
-- ls mxe/usr/bin
 - echo "$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH" 
+- ln -s $TRAVIS_BUILD_DIR/mxe/usr/i686-w64-mingw32.static/qt5/bin/qmake $TRAVIS_BUILD_DIR/mxe/usr/bin/qmake-win32
 - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
-- ls $TRAVIS_BUILD_DIR/mxe/usr/bin
 - make clean
 - rm Makefile
-- mxe/usr/bin/i686-w64-mingw32.static-qmake-qt5
-- i686-w64-mingw32.static-qmake-qt5
+- ls $TRAVIS_BUILD_DIR/mxe/usr/bin
+- qmake-win32
 - make
 deploy:
   provider: releases
