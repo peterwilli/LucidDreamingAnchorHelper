@@ -2,7 +2,7 @@ dist: bionic
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install qt5-default qttools5-dev-tools
-- sudo apt-get install -y autoconf automake autopoint bash bison bzip2 flex g++ g++-multilib gettext git gperf intltool libc6-dev-i386 libgdk-pixbuf2.0-dev libltdl-dev libssl-dev libtool-bin libxml-parser-perl lzip make openssl p7zip-full patch perl pkg-config python ruby sed unzip wget xz-utils
+- sudo apt-get install -y p7zip-full autoconf automake autopoint bash bison bzip2 flex g++ g++-multilib gettext git gperf intltool libc6-dev-i386 libgdk-pixbuf2.0-dev libltdl-dev libssl-dev libtool-bin libxml-parser-perl lzip make openssl p7zip-full patch perl pkg-config python ruby sed unzip wget xz-utils
 script:
 - echo "Making Linux Version!"
 - mv .git .git.bak
@@ -12,8 +12,8 @@ script:
 - "./linuxdeploy-x86_64.AppImage -e LDAnchorHelper -d 'LDAnchorHelper.desktop' -i
   'icon.png' --appdir LDAnchorHelperApp --plugin qt --output appimage"
 - echo "Making the Windows version"
-- git clone https://github.com/mxe/mxe.git
-- cd mxe && travis_wait 60 make qt5
+- wget https://github.com/peterwilli/LucidDreamingAnchorHelper/releases/download/mxe_prebuilt/mxe.7z
+- 7z x mxe.7z
 - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
 - cd ..
 - make clean
