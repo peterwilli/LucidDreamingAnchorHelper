@@ -12,15 +12,14 @@ script:
 - "./linuxdeploy-x86_64.AppImage -e LDAnchorHelper -d 'LDAnchorHelper.desktop' -i
   'icon.png' --appdir LDAnchorHelperApp --plugin qt --output appimage"
 - echo "Making the Windows version"
+- mkdir -p /mnt/data
+- cd /mnt/data
 - wget https://github.com/peterwilli/LucidDreamingAnchorHelper/releases/download/mxe_prebuilt/mxe.7z
 - 7z x mxe.7z
-- echo "$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH"
-- rm $TRAVIS_BUILD_DIR/mxe/usr/bin/i686-w64-mingw32.static-qmake-qt5
-- ln -s $TRAVIS_BUILD_DIR/mxe/usr/i686-w64-mingw32.static/qt5/bin/qmake $TRAVIS_BUILD_DIR/mxe/usr/bin/i686-w64-mingw32.static-qmake-qt5
-- export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
+- cd $TRAVIS_BUILD_DIR
+- export PATH=/mnt/data/mxe/usr/bin:$PATH
 - make clean
 - rm Makefile
-- ls $TRAVIS_BUILD_DIR/mxe/usr/bin
 - i686-w64-mingw32.static-qmake-qt5
 - make
 deploy:
