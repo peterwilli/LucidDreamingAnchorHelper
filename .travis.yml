@@ -15,7 +15,6 @@ script:
 - wget https://github.com/peterwilli/LucidDreamingAnchorHelper/releases/download/mxe_prebuilt/mxe.7z
 - 7z x mxe.7z
 - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
-- cd ..
 - make clean
 - rm Makefile
 - i686-w64-mingw32.static-qmake-qt5
