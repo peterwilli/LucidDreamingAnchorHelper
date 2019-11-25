@@ -13,7 +13,7 @@ script:
   'icon.png' --appdir LDAnchorHelperApp --plugin qt --output appimage"
 - echo "Making the Windows version"
 - git clone https://github.com/mxe/mxe.git
-- cd mxe && make qt5
+- cd mxe && travis_wait 60 make qt5
 - export PATH=$TRAVIS_BUILD_DIR/mxe/usr/bin:$PATH
 - cd ..
 - make clean
