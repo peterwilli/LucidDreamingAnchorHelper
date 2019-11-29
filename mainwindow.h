@@ -22,6 +22,8 @@ private slots:
     void on_timerDial_sliderMoved(int position);
     void dreamLabelClick();
 
+    void on_pushButton_clicked();
+
 private:
     void tick();
     void openRandomWindow();

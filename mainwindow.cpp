@@ -57,6 +57,7 @@ void MainWindow::openRandomWindow() {
     uint8_t windowHeight = 240;
     QRect screenRes = QApplication::desktop()->screenGeometry();
     this->randomWindow = new QWidget();
+    this->randomWindow->setAttribute(Qt::WA_ShowWithoutActivating);
     this->randomWindow->resize(windowWidth, windowHeight);
     this->randomWindow->setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
     this->randomWindow->move(rand() % (screenRes.width() - windowWidth), rand() % (screenRes.height() - windowHeight));
@@ -110,4 +111,9 @@ void MainWindow::on_timerDial_sliderMoved(int position)
     uint8_t positionMinutes = position * ceil(120 / ui->timerDial->maximum());
     QString newText = QString("<html><head/><body><p>Currently, it is set to randomly appear each <span style=\"font-weight:600;\">%1 minutes!</span></p></body></html>").arg(positionMinutes);
     ui->durationLabel->setText(newText);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    openRandomWindow();
 }
