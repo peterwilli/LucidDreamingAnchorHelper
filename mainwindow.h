@@ -26,6 +26,7 @@ private slots:
 
 private:
     void tick();
+    void setDreamTriggerTimer();
     void openRandomWindow();
     void closeRandomWindow();
     void initImagesFolder();

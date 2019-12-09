@@ -42,8 +42,17 @@ bool MainWindow::imagesInFolderCheck() {
     return images.length() == 0;
 }
 
+void MainWindow::setDreamTriggerTimer() {
+    uint16_t positionMinutes = ui->timerDial->value() * ceil(120 / ui->timerDial->maximum());
+    // Add random deviation
+    positionMinutes += rand() % ui->deviationBox->value();
+    this->timer->setSingleShot(true);
+    this->timer->start(positionMinutes * 1000 * 60);
+}
+
 void MainWindow::tick() {
     this->openRandomWindow();
+    this->setDreamTriggerTimer();
 }
 
 void MainWindow::openRandomWindow() {
@@ -101,8 +110,7 @@ void MainWindow::on_startBtn_clicked()
 
     this->timer = new QTimer(this);
     connect(this->timer, &QTimer::timeout, this, QOverload<>::of(&MainWindow::tick));
-    uint8_t positionMinutes = ui->timerDial->value() * ceil(120 / ui->timerDial->maximum());
-    this->timer->start(positionMinutes * 1000 * 60);
+    this->setDreamTriggerTimer();
     this->ui->startBtn->setEnabled(false);
 }
 
