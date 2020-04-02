@@ -22,4 +22,4 @@ Setting up is really simple:
 
 # Join us on Discord!
 
-My own progress + updates to this program as well as discussions of the technique take place on Discord. [Feel free to join us!](https://discord.gg/SjuwPd9)
+My own progress + updates to this program as well as discussions of the technique take place on Discord. [Feel free to join us!](https://discord.gg/eMncDVk)
